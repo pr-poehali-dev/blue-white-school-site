@@ -12,36 +12,7 @@ export default function Index() {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const achievements = [
-    {
-      title: 'Олимпиада по математике',
-      place: '1 место',
-      student: 'Иванов Алексей, 9 класс',
-      level: 'Региональный этап',
-      year: '2024'
-    },
-    {
-      title: 'Конкурс "Живая классика"',
-      place: '2 место',
-      student: 'Петрова Мария, 8 класс',
-      level: 'Всероссийский этап',
-      year: '2024'
-    },
-    {
-      title: 'Научно-практическая конференция',
-      place: '1 место',
-      student: 'Сидоров Дмитрий, 10 класс',
-      level: 'Городской этап',
-      year: '2024'
-    },
-    {
-      title: 'Спортивные соревнования',
-      place: '3 место',
-      student: 'Команда школы',
-      level: 'Региональный этап',
-      year: '2024'
-    }
-  ];
+
 
   const news = [
     {
@@ -86,7 +57,6 @@ export default function Index() {
                 { id: 'main', label: 'Главная', icon: 'Home' },
                 { id: 'about', label: 'О школе', icon: 'School' },
                 { id: 'news', label: 'Новости', icon: 'Newspaper' },
-                { id: 'achievements', label: 'Достижения', icon: 'Trophy' },
                 { id: 'gallery', label: 'Галерея', icon: 'Images' }
               ].map((item) => (
                 <button
@@ -124,9 +94,9 @@ export default function Index() {
                   <Icon name="BookOpen" size={20} className="mr-2 group-hover:rotate-12 transition-transform" />
                   Узнать больше
                 </Button>
-                <Button size="lg" variant="outline" onClick={() => scrollToSection('achievements')}>
-                  <Icon name="Award" size={20} className="mr-2" />
-                  Наши достижения
+                <Button size="lg" variant="outline" onClick={() => scrollToSection('gallery')}>
+                  <Icon name="Images" size={20} className="mr-2" />
+                  Галерея
                 </Button>
               </div>
               
@@ -134,7 +104,7 @@ export default function Index() {
                 {[
                   { icon: 'Users', value: '850+', label: 'Учеников' },
                   { icon: 'User', value: '65+', label: 'Учителей' },
-                  { icon: 'Award', value: '120+', label: 'Наград' }
+                  { icon: 'BookOpen', value: '35+', label: 'Предметов' }
                 ].map((stat, idx) => (
                   <Card key={idx} className="animate-scale-in hover:shadow-lg transition-shadow">
                     <CardContent className="p-6 text-center">
@@ -226,50 +196,7 @@ export default function Index() {
           </div>
         </section>
 
-        <section id="achievements" className="py-20 bg-gradient-to-br from-primary/5 to-accent/5">
-          <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-12">
-                <Badge className="mb-4 text-sm px-4 py-2" variant="outline">
-                  <Icon name="Trophy" size={14} className="mr-2" />
-                  Гордость школы
-                </Badge>
-                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-primary">Достижения</h2>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                  Наши ученики регулярно занимают призовые места на олимпиадах и конкурсах различного уровня
-                </p>
-              </div>
-              
-              <div className="grid md:grid-cols-2 gap-6">
-                {achievements.map((achievement, idx) => (
-                  <Card key={idx} className="hover:shadow-xl transition-all hover:-translate-y-2">
-                    <CardContent className="p-6">
-                      <div className="flex items-start justify-between mb-4">
-                        <div className="flex items-center space-x-3">
-                          <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                            <Icon name="Award" size={24} className="text-primary" />
-                          </div>
-                          <Badge variant="secondary" className="text-lg font-semibold">
-                            {achievement.place}
-                          </Badge>
-                        </div>
-                        <Badge variant="outline">{achievement.year}</Badge>
-                      </div>
-                      <h3 className="text-xl font-semibold mb-3">{achievement.title}</h3>
-                      <p className="text-muted-foreground mb-2">{achievement.student}</p>
-                      <div className="flex items-center text-sm text-muted-foreground">
-                        <Icon name="MapPin" size={14} className="mr-1" />
-                        {achievement.level}
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="gallery" className="py-20">
+        <section id="gallery" className="py-20 bg-gradient-to-br from-primary/5 to-accent/5">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-primary">Галерея</h2>
